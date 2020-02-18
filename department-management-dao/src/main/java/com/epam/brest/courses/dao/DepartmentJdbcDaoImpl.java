@@ -24,6 +24,7 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
         return departments;
     }
 
+
     @Override
     public Department getDepartmentById(Integer departmentId) {
         return null;
