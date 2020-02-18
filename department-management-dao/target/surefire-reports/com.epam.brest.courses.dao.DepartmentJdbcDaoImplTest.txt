@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------
+Test set: com.epam.brest.courses.dao.DepartmentJdbcDaoImplTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 1.143 s <<< FAILURE! - in com.epam.brest.courses.dao.DepartmentJdbcDaoImplTest
+deleteDepartment  Time elapsed: 0.018 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'dataSource' defined in URL [jar:file:/home/alexey/dev/abaryliuk-department-mngmnt/department-management-test/target/department-management-test-1.0-SNAPSHOT.jar!/test-db.xml]: Error setting property values; nested exception is org.springframework.beans.PropertyBatchUpdateException; nested PropertyAccessExceptions (1) are:
+PropertyAccessException 1: org.springframework.beans.MethodInvocationException: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+Caused by: org.springframework.beans.PropertyBatchUpdateException: Failed properties: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+
+getDepartmentById  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'dataSource' defined in URL [jar:file:/home/alexey/dev/abaryliuk-department-mngmnt/department-management-test/target/department-management-test-1.0-SNAPSHOT.jar!/test-db.xml]: Error setting property values; nested exception is org.springframework.beans.PropertyBatchUpdateException; nested PropertyAccessExceptions (1) are:
+PropertyAccessException 1: org.springframework.beans.MethodInvocationException: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+Caused by: org.springframework.beans.PropertyBatchUpdateException: Failed properties: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+
+updateDepartment  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'dataSource' defined in URL [jar:file:/home/alexey/dev/abaryliuk-department-mngmnt/department-management-test/target/department-management-test-1.0-SNAPSHOT.jar!/test-db.xml]: Error setting property values; nested exception is org.springframework.beans.PropertyBatchUpdateException; nested PropertyAccessExceptions (1) are:
+PropertyAccessException 1: org.springframework.beans.MethodInvocationException: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+Caused by: org.springframework.beans.PropertyBatchUpdateException: Failed properties: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+
+getDepartments  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'dataSource' defined in URL [jar:file:/home/alexey/dev/abaryliuk-department-mngmnt/department-management-test/target/department-management-test-1.0-SNAPSHOT.jar!/test-db.xml]: Error setting property values; nested exception is org.springframework.beans.PropertyBatchUpdateException; nested PropertyAccessExceptions (1) are:
+PropertyAccessException 1: org.springframework.beans.MethodInvocationException: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+Caused by: org.springframework.beans.PropertyBatchUpdateException: Failed properties: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+
+addDepartment  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'dataSource' defined in URL [jar:file:/home/alexey/dev/abaryliuk-department-mngmnt/department-management-test/target/department-management-test-1.0-SNAPSHOT.jar!/test-db.xml]: Error setting property values; nested exception is org.springframework.beans.PropertyBatchUpdateException; nested PropertyAccessExceptions (1) are:
+PropertyAccessException 1: org.springframework.beans.MethodInvocationException: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+Caused by: org.springframework.beans.PropertyBatchUpdateException: Failed properties: Property 'driverClassName' threw exception; nested exception is java.lang.IllegalStateException: Could not load JDBC driver class [org.h2.Driver]
+

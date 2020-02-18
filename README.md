@@ -1,1 +1,0 @@
-# abaryliuk-department-mngmnt

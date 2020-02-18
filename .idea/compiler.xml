@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="department-management-test" />
         <module name="departent-management-dao" />
         <module name="department-management-model" />
         <module name="department-management-dao" />
@@ -16,6 +17,7 @@
       <module name="departent-management-dao" target="1.8" />
       <module name="department-management-dao" target="1.8" />
       <module name="department-management-model" target="1.8" />
+      <module name="department-management-test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
