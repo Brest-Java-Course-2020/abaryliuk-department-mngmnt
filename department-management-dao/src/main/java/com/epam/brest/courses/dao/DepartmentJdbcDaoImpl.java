@@ -12,6 +12,7 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+
     public DepartmentJdbcDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
@@ -27,6 +28,7 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
 
     @Override
     public Department getDepartmentById(Integer departmentId) {
+
         return null;
     }
 
@@ -49,8 +51,8 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
         @Override
         public Department mapRow(ResultSet resultSet, int i) throws SQLException {
             Department department = new Department();
-            department.setDepartmentId(resultSet.getInt("DEPARTMENT_ID"));
-            department.setDepartmentName(resultSet.getString("DEPARTMENT_NAME"));
+            department.setDepartmentId(resultSet.getInt("DEPARTMENTID"));
+            department.setDepartmentName(resultSet.getString("DEPARTMENTNAME"));
             return department;
         }
     }

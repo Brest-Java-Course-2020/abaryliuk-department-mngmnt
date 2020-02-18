@@ -20,13 +20,14 @@ public class DepartmentJdbcDaoImplTest {
 
     @Test
     public void getDepartments() {
-
         List<Department> departments = departmentDao.getDepartments();
         assertNotNull(departments);
     }
 
     @Test
     public void getDepartmentById() {
+//        Department department = departmentDao.getDepartmentById(10);
+//        assertNull(department);
     }
 
     @Test
