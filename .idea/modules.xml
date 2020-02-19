@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/abaryliuk-department-mngmnt.iml" filepath="$PROJECT_DIR$/.idea/abaryliuk-department-mngmnt.iml" />
-      <module fileurl="file://$PROJECT_DIR$/department-management-dao/departent-management-dao.iml" filepath="$PROJECT_DIR$/department-management-dao/departent-management-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/department-management-dao/department-management-dao.iml" filepath="$PROJECT_DIR$/department-management-dao/department-management-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/department-management-model/department-management-model.iml" filepath="$PROJECT_DIR$/department-management-model/department-management-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/department-management-test/department-management-test.iml" filepath="$PROJECT_DIR$/department-management-test/department-management-test.iml" />

@@ -16,6 +16,7 @@
       <module name="abaryliuk-department-mngmnt" target="1.8" />
       <module name="departent-management-dao" target="1.8" />
       <module name="department-management-dao" target="1.8" />
+      <module name="department-management-dao1" target="1.8" />
       <module name="department-management-model" target="1.8" />
       <module name="department-management-test" target="1.8" />
     </bytecodeTargetLevel>

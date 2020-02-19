@@ -2,7 +2,9 @@ package com.epam.brest.courses.dao;
 
 import com.epam.brest.courses.model.Department;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +31,11 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
     @Override
     public Department getDepartmentById(Integer departmentId) {
 
-        return null;
+        String str = "SELECT * FROM department WHERE departmentId = :departmentId";
+
+        SqlParameterSource namedParameters = new MapSqlParameterSource("departmentId", Integer.valueOf(departmentId));
+        Department department = (Department) namedParameterJdbcTemplate.queryForObject(str, namedParameters, new DepartmentRowMapper());
+        return department;
     }
 
     @Override

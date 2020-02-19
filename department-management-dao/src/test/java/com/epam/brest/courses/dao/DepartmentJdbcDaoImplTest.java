@@ -26,8 +26,8 @@ public class DepartmentJdbcDaoImplTest {
 
     @Test
     public void getDepartmentById() {
-//        Department department = departmentDao.getDepartmentById(10);
-//        assertNull(department);
+        Department department = departmentDao.getDepartmentById(1);
+        assertNotNull(department);
     }
 
     @Test

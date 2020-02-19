@@ -16,3 +16,4 @@ public interface DepartmentDao {
     void deleteDepartment(Integer departmentId);
 
 }
+

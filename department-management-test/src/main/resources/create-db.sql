@@ -13,6 +13,7 @@ CREATE TABLE employee (
   firstName VARCHAR(255) NOT NULL,
   lastName VARCHAR(255) NOT NULL,
   departmentId int NOT NULL,
+  salary int NOT NULL,
   PRIMARY KEY (employeeId)
 );
 
