@@ -12,4 +12,12 @@
         <constructor-arg ref="dataSource"/>
     </bean>
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:department.properties</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>
