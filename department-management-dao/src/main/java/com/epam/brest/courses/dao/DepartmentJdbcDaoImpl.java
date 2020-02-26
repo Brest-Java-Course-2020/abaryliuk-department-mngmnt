@@ -23,8 +23,8 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
 
     MapSqlParameterSource parameterSource = new MapSqlParameterSource();
 
-    @Value("${DEP.sqlGetAllDepartmentBy}")
-    private String sqlGetAllDepartmentBy;
+    @Value("${DEP.sqlGetAllDepartments}")
+    private String sqlGetAllDepartments;
 
     @Value("${DEP.sqlAdd}")
     private String sqlAdd;
@@ -54,7 +54,8 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
     public List<Department> getDepartments() {
 
         LOGGER.debug("The getDepartment method started" );
-        List<Department> departments = namedParameterJdbcTemplate.query(sqlGetAllDepartmentBy, new DepartmentRowMapper());
+        List<Department> departments = namedParameterJdbcTemplate.query(sqlGetAllDepartments
+                        , new DepartmentRowMapper());
 
         return departments;
     }
