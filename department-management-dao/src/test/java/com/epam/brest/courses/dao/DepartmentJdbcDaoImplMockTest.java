@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+
 @ExtendWith(MockitoExtension.class)
 public class DepartmentJdbcDaoImplMockTest {
 
@@ -48,18 +49,19 @@ public class DepartmentJdbcDaoImplMockTest {
 
     @Test
     public void getDepartments() throws SQLException {
+
         int id = 5;
         String name = "name";
         String sql = "something";
-
         ResultSet rs = mock(ResultSet.class);
         Department department = new Department();
-        ReflectionTestUtils.setField(departmentDao,"something1", sql);
 
+        ReflectionTestUtils.setField(departmentDao,"sqlGetAllDepartments", sql);
+
+        when(namedParameterJdbcTemplate.query(anyString(),any(RowMapper.class))).thenReturn(Collections.singletonList(department));
         when(rs.getInt(anyString())).thenReturn(id);
         when(rs.getString(anyString())).thenReturn(name);
-        when(namedParameterJdbcTemplate.query(anyString(),any(RowMapper.class)))
-        . thenReturn(Collections.singletonList(department));
+
 
         List<Department> departments = departmentDao.getDepartments();
         assertNotNull(departments);
