@@ -5,6 +5,7 @@ import com.epam.brest.courses.model.Department;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -13,15 +14,15 @@ import org.springframework.jdbc.support.KeyHolder;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import static com.epam.brest.courses.constants.DepartmentConstants.*;
+
 
 public class DepartmentJdbcDaoImpl implements DepartmentDao {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentJdbcDaoImpl.class);
-
-    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
-    MapSqlParameterSource parameterSource = new MapSqlParameterSource();
 
     @Value("${DEP.sqlGetAllDepartments}")
     private String sqlGetAllDepartments;
@@ -48,10 +49,16 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentJdbcDaoImpl.class);
 
+    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    private final MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+
+    private final DepartmentRowMapper departmentRowMapper = new DepartmentRowMapper();
 
     @Override
-    public List<Department> getDepartments() {
+    public List<Department> findAll() {
 
         LOGGER.debug("The getDepartment method started" );
         List<Department> departments = namedParameterJdbcTemplate.query(sqlGetAllDepartments
@@ -61,32 +68,23 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
     }
 
 
-
-
     @Override
-    public Department getDepartmentById(Integer departmentId) {
+    public Optional<Department> findById(Integer departmentId) {
+
         LOGGER.debug("DepartmentId = :   {}" , departmentId);
-
-        parameterSource.addValue("departmentId", departmentId);
-        Integer result = namedParameterJdbcTemplate.queryForObject(sqlCountById, parameterSource, Integer.class);
-
-        if (result == 0) {
-            LOGGER.error("DepartmentJdbcDaoImpl getDepartmentById - Record is absent");
-            throw new IllegalArgumentException("Record is absent");
-        }
-
-        Department department = (Department) namedParameterJdbcTemplate.queryForObject(sqlGetDepartmentById, parameterSource,
-                new DepartmentRowMapper());
-
-        return department;
+        parameterSource.addValue("department_id", departmentId);
+        // Note: don't use queryForObject to reduce exception handling
+        // there is possible solution with BeanPropertyRowMapper.newInstance(Department.class)
+        List<Department> results = namedParameterJdbcTemplate.query(sqlGetDepartmentById, parameterSource, departmentRowMapper);
+        return Optional.ofNullable(DataAccessUtils.uniqueResult(results));
     }
 
 
 
     @Override
-    public Department addDepartment(Department department) {
+    public Integer create (Department department) {
         LOGGER.debug("DepartmentJdbcDaoImpl addDepartment {}", department);
-        parameterSource.addValue( "departmentName", department.getDepartmentName());
+        parameterSource.addValue( "department_name", department.getDepartmentName());
 
         Integer result = namedParameterJdbcTemplate.queryForObject(sqlCountByName, parameterSource, Integer.class);
         LOGGER.debug("result {}", result);
@@ -96,7 +94,7 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
             namedParameterJdbcTemplate.update(sqlAdd, parameterSource, keyHolder);
             department.setDepartmentId(keyHolder.getKey().intValue());
             LOGGER.debug("DepartmentJdbcDaoImpl after adding addDepartment {}", department);
-            return department;
+            return keyHolder.getKey().intValue();
         } else {
             LOGGER.error("Record with this name is present");
             throw new IllegalArgumentException("Record with this name is present");
@@ -106,29 +104,33 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
 
 
     @Override
-    public void updateDepartment(Department department) {
-    LOGGER.debug("NewDepartment {}" ,department);
-    parameterSource.addValue("departmentName",department.getDepartmentName());
-    namedParameterJdbcTemplate.update(sqlUpdate,parameterSource);
+    public int update(Department department) {
+
+        LOGGER.debug("update(department:{})", department);
+        Map<String, Object> params = new HashMap<>();
+        params.put(DEPARTMENT_ID, department.getDepartmentId());
+        params.put(DEPARTMENT_NAME, department.getDepartmentName());
+        return namedParameterJdbcTemplate.update(sqlUpdate, params);
     }
-
-
 
     @Override
-    public void deleteDepartment(Integer departmentId) {
-        LOGGER.debug("DepartmentId = :      " + departmentId);
-        parameterSource.addValue("departmentId", departmentId);
-        namedParameterJdbcTemplate.update(sqlDeleteById, parameterSource);
+    public int delete(Integer departmentId) {
+
+        LOGGER.debug("delete(departmentId:{})", departmentId);
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue(DEPARTMENT_ID, departmentId);
+        int res = namedParameterJdbcTemplate.update(sqlDeleteById, mapSqlParameterSource);
+        LOGGER.debug("res*********************************:     {})", res);
+        return res;
     }
 
-
-
     private class DepartmentRowMapper implements RowMapper<Department> {
+
         @Override
         public Department mapRow(ResultSet resultSet, int i) throws SQLException {
             Department department = new Department();
-            department.setDepartmentId(resultSet.getInt("DEPARTMENTID"));
-            department.setDepartmentName(resultSet.getString("DEPARTMENTNAME"));
+            department.setDepartmentId(resultSet.getInt(COLUMN_DEPARTMENT_ID));
+            department.setDepartmentName(resultSet.getString(COLUMN_DEPARTMENT_NAME));
             return department;
         }
     }
