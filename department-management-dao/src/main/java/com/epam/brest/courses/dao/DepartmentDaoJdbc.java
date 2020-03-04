@@ -22,7 +22,7 @@ import java.util.Optional;
 import static com.epam.brest.courses.constants.DepartmentConstants.*;
 
 
-public class DepartmentJdbcDaoImpl implements DepartmentDao {
+public class DepartmentDaoJdbc implements DepartmentDao {
 
     @Value("${DEP.sqlGetAllDepartments}")
     private String sqlGetAllDepartments;
@@ -45,11 +45,11 @@ public class DepartmentJdbcDaoImpl implements DepartmentDao {
     @Value("${DEP.sqlDeleteById}")
     private String sqlDeleteById;
 
-    public DepartmentJdbcDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    public DepartmentDaoJdbc(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentJdbcDaoImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentDaoJdbc.class);
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 

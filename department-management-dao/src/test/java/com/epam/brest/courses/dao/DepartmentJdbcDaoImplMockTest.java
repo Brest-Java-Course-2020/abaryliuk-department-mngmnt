@@ -24,7 +24,7 @@ import static org.mockito.Mockito.*;
 public class DepartmentJdbcDaoImplMockTest {
 
     @InjectMocks
-    private DepartmentJdbcDaoImpl departmentDao;
+    private DepartmentDaoJdbc departmentDao;
 
     @Mock
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
@@ -58,7 +58,8 @@ public class DepartmentJdbcDaoImplMockTest {
 
         ReflectionTestUtils.setField(departmentDao,"sqlGetAllDepartments", sql);
 
-        when(namedParameterJdbcTemplate.query(anyString(),any(RowMapper.class))).thenReturn(Collections.singletonList(department));
+        when(namedParameterJdbcTemplate.query(anyString(),any(RowMapper.class)))
+                .thenReturn(Collections.singletonList(department));
         when(rs.getInt(anyString())).thenReturn(id);
         when(rs.getString(anyString())).thenReturn(name);
 
