@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="department-management-test-db" />
-        <module name="department-management-dao" />
-        <module name="departent-management-dao" />
-        <module name="department-management-model" />
         <module name="department-management-web-app" />
+        <module name="department-management-model" />
+        <module name="departent-management-dao" />
+        <module name="department-management-service" />
+        <module name="department-management-test-db" />
+        <module name="department-management-service-api" />
+        <module name="department-management-dao" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -19,8 +21,20 @@
       <module name="department-management-dao" target="1.8" />
       <module name="department-management-dao1" target="1.8" />
       <module name="department-management-model" target="1.8" />
+      <module name="department-management-service" target="1.8" />
+      <module name="department-management-service-api" target="1.8" />
       <module name="department-management-test-db" target="1.8" />
       <module name="department-management-web-app" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="department-management-dao" options="-Xlint:all,-options,-path" />
+      <module name="department-management-model" options="-Xlint:all,-options,-path" />
+      <module name="department-management-service" options="-Xlint:all,-options,-path" />
+      <module name="department-management-service-api" options="-Xlint:all,-options,-path" />
+      <module name="department-management-test-db" options="-Xlint:all,-options,-path" />
+      <module name="department-management-web-app" options="-Xlint:all,-options,-path" />
+    </option>
   </component>
 </project>

@@ -1,18 +1,19 @@
-package com.epam.brest.courses.dao;
+package com.epam.brest.courses.service;
 
 import com.epam.brest.courses.model.Department;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface DepartmentDao {
+public interface DepartmentService {
+
     /**
      * Find all departments.
      *
      * @return departments list.
      */
 
-    List<Department> findAll();
+    public List<Department> findAll();
 
     /**
      * Find department by Id.
@@ -21,7 +22,7 @@ public interface DepartmentDao {
      * @return department.
      */
 
-    Optional<Department> findById(Integer departmentId);
+    public Optional<Department> findById(Integer departmentId);
 
     /**
      * Persist new department.
@@ -29,7 +30,8 @@ public interface DepartmentDao {
      * @param department department.
      * @return persisted department id.
      */
-    Integer create(Department department);
+
+    public Integer create(Department department);
 
     /**
      * Update department.
@@ -37,7 +39,8 @@ public interface DepartmentDao {
      * @param department department.
      * @return number of updated records in the database.
      */
-    int update(Department department);
+
+    public int update(Department department);
 
     /**
      * Delete department.
@@ -45,7 +48,7 @@ public interface DepartmentDao {
      * @param departmentId department id.
      * @return number of updated records in the database.
      */
-    int delete(Integer departmentId);
 
+    public int delete(Integer departmentId);
 }
 

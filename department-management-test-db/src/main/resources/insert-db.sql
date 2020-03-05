@@ -1,36 +1,11 @@
 
-set foreign_key_checks=0;
 
+INSERT INTO department (department_id, department_name) VALUES (1, 'DEV');
+INSERT INTO department (department_id, department_name) VALUES (2, 'ACCOUNTING');
+INSERT INTO department (department_id, department_name) VALUES (3, 'MANAGEMENT');
 
-INSERT INTO department
-VALUES (DEFAULT, 'Department1');
-INSERT INTO department
-VALUES (DEFAULT, 'Department2');
-INSERT INTO department
-VALUES (DEFAULT, 'Department3');
-
-INSERT INTO employee
-VALUES (DEFAULT, 'Ivan', 'Ivanov', 1, 3000);
-
-INSERT INTO employee
-VALUES (DEFAULT, 'Petr', 'Petrov', 2, 2000);
-
-INSERT INTO employee
-VALUES (DEFAULT, 'Sergey', 'Ivanov',3, 1000);
-
-INSERT INTO employee
-VALUES (DEFAULT, 'Mike', 'Djonson', 1, 2500);
-
-INSERT INTO employee
-VALUES (DEFAULT, 'Artem', 'Lopata', 2, 2300);
-
-INSERT INTO employee
-VALUES (DEFAULT,'Astra', 'Mironova', 3, 1800);
-
-INSERT INTO employee
-VALUES (DEFAULT, 'Zlata', 'Maximochkina',2, 1700);
-
-INSERT INTO employee
-VALUES (DEFAULT, 'Daria', 'Lihacheva', 3, 1600);
-
-set foreign_key_checks=1;
+INSERT INTO employee (employee_id, firstname, lastname, email, salary, department_id) VALUES (1, 'FUSER10', 'LUSER10', 'email10@mail.com', 100, 1);
+INSERT INTO employee (employee_id, firstname, lastname, email, salary, department_id) VALUES (2, 'FUSER11', 'LUSER11', 'email11@mail.com', 200, 1);
+INSERT INTO employee (employee_id, firstname, lastname, email, salary, department_id) VALUES (3, 'FUSER21', 'LUSER21', 'email21@mail.com', 300, 2);
+INSERT INTO employee (employee_id, firstname, lastname, email, salary, department_id) VALUES (4, 'FUSER22', 'LUSER22', 'email22@mail.com', 400, 2);
+INSERT INTO employee (employee_id, firstname, lastname, email, salary, department_id) VALUES (5, 'FUSER23', 'LUSER23', 'email23@mail.com', 500, 2);
