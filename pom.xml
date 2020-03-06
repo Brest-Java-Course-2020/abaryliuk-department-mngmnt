@@ -66,7 +66,7 @@
                 <groupId>com.epam.brest.courses</groupId>
                 <artifactId>department-management-test-db</artifactId>
                 <version>${project.version}</version>
-                <scope>test</scope>
+
             </dependency>
 
             <dependency>
@@ -109,6 +109,11 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>4.0.0</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation-api.version}</version>
             </dependency>
 
             <dependency>
@@ -178,12 +183,6 @@
             </dependency>
 
             <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
-                <version>${validation-api.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>1.4.200</version>
@@ -220,7 +219,6 @@
 <!--                <plugin>-->
 <!--                    <groupId>org.apache.maven.plugins</groupId>-->
 <!--                    <artifactId>maven-failsafe-plugin</artifactId>-->
-<!--                    <version>2.22.2</version>-->
 <!--                    <executions>-->
 <!--                        <execution>-->
 <!--                            <goals>-->
@@ -249,11 +247,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <compilerArgs>
-                        <arg>-Xlint:all,-options,-path</arg>
-                    </compilerArgs>
                 </configuration>
-
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -266,3 +260,4 @@
 
 
 </project>
+

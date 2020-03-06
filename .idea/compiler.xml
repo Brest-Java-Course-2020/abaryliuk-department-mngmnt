@@ -29,12 +29,12 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="department-management-dao" options="-Xlint:all,-options,-path" />
-      <module name="department-management-model" options="-Xlint:all,-options,-path" />
-      <module name="department-management-service" options="-Xlint:all,-options,-path" />
-      <module name="department-management-service-api" options="-Xlint:all,-options,-path" />
-      <module name="department-management-test-db" options="-Xlint:all,-options,-path" />
-      <module name="department-management-web-app" options="-Xlint:all,-options,-path" />
+      <module name="department-management-dao" options="" />
+      <module name="department-management-model" options="" />
+      <module name="department-management-service" options="" />
+      <module name="department-management-service-api" options="" />
+      <module name="department-management-test-db" options="" />
+      <module name="department-management-web-app" options="" />
     </option>
   </component>
 </project>
