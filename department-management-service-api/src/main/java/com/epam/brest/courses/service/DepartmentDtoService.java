@@ -11,6 +11,6 @@ public interface DepartmentDtoService {
      * @return departments list.
      */
 
-    public List<DepartmentDto> findAllWithAvgSalary();
+     List<DepartmentDto> findAllWithAvgSalary();
 
 }

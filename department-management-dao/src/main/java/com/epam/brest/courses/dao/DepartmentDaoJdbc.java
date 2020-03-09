@@ -33,8 +33,8 @@ public class DepartmentDaoJdbc implements DepartmentDao {
     @Value("${DEP.sqlUpdate}")
     private String sqlUpdate;
 
-    @Value("${DEP.sqlCountById}")
-    private String sqlCountById;
+//    @Value("${DEP.sqlCountById}")
+//    private String sqlCountById;
 
     @Value("${DEP.sqlCountByName}")
     private String sqlCountByName;
@@ -124,7 +124,7 @@ public class DepartmentDaoJdbc implements DepartmentDao {
         return res;
     }
 
-    private class DepartmentRowMapper implements RowMapper<Department> {
+    private static class DepartmentRowMapper implements RowMapper<Department> {
 
         @Override
         public Department mapRow(ResultSet resultSet, int i) throws SQLException {

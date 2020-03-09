@@ -13,7 +13,7 @@ public interface DepartmentService {
      * @return departments list.
      */
 
-    public List<Department> findAll();
+     List<Department> findAll();
 
     /**
      * Find department by Id.
@@ -22,7 +22,7 @@ public interface DepartmentService {
      * @return department.
      */
 
-    public Optional<Department> findById(Integer departmentId);
+     Optional<Department> findById(Integer departmentId);
 
     /**
      * Persist new department.
@@ -31,7 +31,7 @@ public interface DepartmentService {
      * @return persisted department id.
      */
 
-    public Integer create(Department department);
+     Integer create(Department department);
 
     /**
      * Update department.
@@ -40,7 +40,7 @@ public interface DepartmentService {
      * @return number of updated records in the database.
      */
 
-    public int update(Department department);
+     int update(Department department);
 
     /**
      * Delete department.
@@ -49,6 +49,6 @@ public interface DepartmentService {
      * @return number of updated records in the database.
      */
 
-    public int delete(Integer departmentId);
+     int delete(Integer departmentId);
 }
 
