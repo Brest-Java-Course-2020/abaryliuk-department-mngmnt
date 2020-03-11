@@ -32,15 +32,6 @@ public class DepartmentJdbcDaoImplMockTest {
     @Captor
     private ArgumentCaptor<RowMapper<Department>> mapper;
 
-    //2.  Without annotation
-    //3. When we use xml
-//    @BeforeEach
-//    void befor(){
-//        namedParameterJdbcTemplate = mock(NamedParameterJdbcTemplate.class);
-//        departmentDao = new DepartmentJdbcDaoImpl(namedParameterJdbcTemplate);
-//    }
-
-
 
    @AfterEach
    void after(){

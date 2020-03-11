@@ -60,9 +60,9 @@ public class DepartmentDaoJdbc implements DepartmentDao {
     @Override
     public List<Department> findAll() {
 
-        LOGGER.debug("The getDepartment method started" );
+        LOGGER.debug("DepartmentDaoJdbc findAll()" );
         List<Department> departments = namedParameterJdbcTemplate.query(sqlGetAllDepartments
-                        , new DepartmentRowMapper());
+                        , departmentRowMapper);
 
         return departments;
     }

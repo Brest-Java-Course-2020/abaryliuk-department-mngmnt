@@ -81,14 +81,14 @@
                                     <option th:each="department : ${departments}"
                                             value="0" th:value="${department.departmentId}"
                                             th:text="${department.departmentName}">CEO</option>
-                                    <option th:remove="all"
-                                            value="1">Accounting</option>
-                                    <option th:remove="all"
-                                            value="2">Java</option>
-                                    <option th:remove="all"
-                                            value="3">Testing</option>
-                                    <option th:remove="all"
-                                            value="4">People management</option>
+<!--                                    <option th:remove="all"-->
+<!--                                            value="1">Accounting</option>-->
+<!--                                    <option th:remove="all"-->
+<!--                                            value="2">Java</option>-->
+<!--                                    <option th:remove="all"-->
+<!--                                            value="3">Testing</option>-->
+<!--                                    <option th:remove="all"-->
+<!--                                            value="4">People management</option>-->
                                 </select>
                             </div>
 
@@ -137,7 +137,7 @@
                                 <input class="form-control "
                                        th:class="${#fields.hasErrors('salary')} ? 'form-control is-invalid' : 'form-control'"
                                        id="field_salary"
-                                       type="text" value="Ivan"
+                                       type="text" value="1000"
                                        th:field="*{salary}"/>
                                 <div th:if="${#fields.hasErrors('salary')}"
                                      class="invalid-feedback"

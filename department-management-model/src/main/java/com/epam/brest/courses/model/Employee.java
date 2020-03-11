@@ -71,14 +71,14 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", salary=" + salary +
-                ", departmentId=" + departmentId +
-                '}';
+        return "Employee{"
+                + "employeeId=" + employeeId
+                + ", firstname='" + firstname + '\''
+                + ", lastname='" + lastname + '\''
+                + ", email='" + email + '\''
+                + ", salary=" + salary
+                + ", departmentId=" + departmentId
+                + '}';
     }
 }
 

@@ -37,6 +37,7 @@ public interface DepartmentDao {
      * @param department department.
      * @return number of updated records in the database.
      */
+
     int update(Department department);
 
     /**
@@ -45,6 +46,7 @@ public interface DepartmentDao {
      * @param departmentId department id.
      * @return number of updated records in the database.
      */
+
     int delete(Integer departmentId);
 
 }
