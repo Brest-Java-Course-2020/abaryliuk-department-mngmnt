@@ -2,6 +2,12 @@ package com.epam.brest.courses.model;
 
 public class Department {
 
+    public Department() {
+    }
+
+    public Department(String departmentName) {
+        this.departmentName = departmentName;
+    }
     private Integer departmentId;
 
     private String departmentName;
