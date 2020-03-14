@@ -1,2 +1,2 @@
-![Java CI](https://github.com/Brest-Java-Course-2020/apiashko-car-rental/workflows/Java%20CI/badge.svg)
+![Java CI](https://github.com/Brest-Java-Course-2020//workflows/Java%20CI/badge.svg)
 # abaryliuk-department-mngmnt
