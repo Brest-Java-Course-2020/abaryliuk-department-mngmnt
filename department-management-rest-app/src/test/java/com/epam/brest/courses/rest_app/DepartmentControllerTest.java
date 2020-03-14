@@ -50,7 +50,7 @@ class DepartmentControllerTest {
         Mockito.when(departmentDtoService.findAllWithAvgSalary()).thenReturn(Arrays.asList(create(0), create(1)));
 
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/departments")
+                MockMvcRequestBuilders.get("/departments/")
         ).andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType("application/json;charset=UTF-8"))
